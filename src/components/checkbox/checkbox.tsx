@@ -52,6 +52,12 @@ export class Checkbox {
     }
   }
 
+  componentDidUpdate() {
+    if (this.color && !/(accent)|(primary)|(secondary)|(error)/.test(this.color)) {
+      this.checkboxDiv.style.setProperty('--mdc-theme-secondary', this.color);
+    }
+  }
+
   componentDidUnload() {
     this.mdcCheckbox.destroy();
   }
